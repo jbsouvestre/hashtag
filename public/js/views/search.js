@@ -1,31 +1,29 @@
-import { Model } from 'backbone';
+import { Model, history } from 'backbone';
 import { ItemView } from 'marionette';
-import 'bootstrap-daterangepicker';
+//import bd from 'bootstrap-daterangepicker';
 
-export let Search = Model.extend({
-    url: '/search'
-});
 
-export let SearchView = ItemView.extend({
-    template: false,
-    el: '#search',
-    initialize(){
-        this.triggerMethod('render');
-    },
+export default ItemView.extend({
+    template: require('__templates__/search.html'),
     ui: {
         form: 'form',
+        query: '[name=query]',
         date: '[name=date]',
         'submit': '[type=submit]'
     },
     events: {
         'submit @ui.form': 'onSubmit',
     },
-    onRender: function(){
-        console.log('onRander')
+    onRender(){
+        // /console.log($);
         //this.ui.date.daterangepicker();
     },
     onSubmit(e){
         e.preventDefault();
-        console.log('submit');
+        let queryParams = this.ui.form.serialize();
+
+        history.navigate('/search?' + queryParams, {
+            trigger: true
+        });        
     }
 });

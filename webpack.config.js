@@ -20,12 +20,16 @@ module.exports = {
             test: /\.js$/,
             loader: 'babel-loader',
             exclude: /node_modules/
+        }, {
+            test: /\.(html|hbs)$/,
+            loader: 'handlebars-loader?helperDirs[]='+__dirname+'/public/js/helpers'
         }]
     },
     resolve: {
         alias: {
             marionette: 'backbone.marionette',
-            bootstrap: 'bootstrap-sass'
+            bootstrap: 'bootstrap-sass',
+            __templates__: __dirname + '/public/templates'
         }
     },
     plugins: [

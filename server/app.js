@@ -33,9 +33,13 @@ var server = app.listen(3000, function() {
     console.log('Started server at http://%s:%s', host, port);
 });
 
-console.log(STYLE_URL, SCRIPT_URL);
+app.get('/api/search/', function(req, res){
+    res.send(JSON.stringify({
+        number: '123'
+    }));
+});
 
-app.get('/', function(req, res) {
+app.get('/*', function(req, res) {
     res.render('index', {
         STYLE_URL: STYLE_URL,
         SCRIPT_URL: SCRIPT_URL

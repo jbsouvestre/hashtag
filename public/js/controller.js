@@ -1,19 +1,35 @@
 import { Controller } from 'marionette';
-import { SearchView } from './views/search';
+import ResultView from './views/result';
+import LoadingView from './views/loading';
+import Search from './models/search';
 import Layout from './views/layout';
 
+
 let AppController = Controller.extend({
-    initialize(){
-        console.log('Attaching View');
-        Layout.search.attachView(new SearchView());
-    },
-    
     index(){
-        console.log('Index Router');
+        console.info('Index Router');
     },
 
     search(...args){
-        console.log(`Search route ${args}`);
+
+        let query = new Search({
+            queryParams: args
+        });
+
+        let resultView = new ResultView({
+            model: query
+        });
+
+        Layout.results.show( new LoadingView() );
+
+        query.fetch()
+            .done(() => {
+                Layout.results.show(resultView);
+            })
+            .fail(this._handleError.bind(this));
+    },
+    _handleError: function(...args){
+        console.log(args);
     }
 });
 
