@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        title #ash
+        meta(name='title', content='')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(rel='stylesheet', href="/_assets/css/main.css")
+      body
+        main(role='main')
+            .container.row
+                section#search.well
+                  form(action='').form-inline
+                    .form-group
+                      input(type='text', placeholder='Search', value=SCRIPT_URL).form-control
+        
+                    .form-group
+                        input(type="text", name="date")
+                    button(type="submit").btn.btn-primary Search
+
+        script(src!=SCRIPT_URL)

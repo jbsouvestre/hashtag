@@ -1,0 +1,42 @@
+{
+  "name": "hashtag",
+  "version": "1.0.0",
+  "description": "a tool for hashtag monitoring",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbsouvestre/hashtag.git"
+  },
+  "author": "Jean-Baptiste Souvestre <jbsouvestre@gmail.com> (https://jbsouvestre.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jbsouvestre/hashtag/issues"
+  },
+  "homepage": "https://github.com/jbsouvestre/hashtag",
+  "dependencies": {
+    "backbone": "^1.1.2",
+    "backbone.marionette": "^2.4.1",
+    "bootstrap-daterangepicker": "git://github.com/dangrossman/bootstrap-daterangepicker",
+    "bootstrap-sass": "^3.3.4",
+    "colors": "^1.0.3",
+    "express": "^4.12.3",
+    "font-awesome": "^4.3.0",
+    "jade": "^1.9.2",
+    "jquery": "^2.1.3",
+    "rsvp": "^3.0.18",
+    "twitter": "^1.2.5"
+  },
+  "devDependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^4.2.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.1",
+    "gulp-util": "^3.0.4",
+    "webpack": "^1.7.3"
+  }
+}
